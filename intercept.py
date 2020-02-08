@@ -12,12 +12,14 @@ print (f"socket binded to {port}")
 #set listner
 s.listen(5)      
 print ("socket is listening")
-            
-while True: 
-  
-   c, addr = s.accept()      
-   print ('Got connection from', addr) 
 
-   c.close() 
+while True: 
+    c, addr = s.accept()      
+    print ('Got a connection')
+    rec = (c.recv(1024))
+    print(rec.decode('utf-8'))
+    # with open("./dump", 'a+') as fp:
+    #     fp.write(f"{rec.decode('utf-8')}\n")
+    c.close() 
 
 
