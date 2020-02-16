@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import socket
+import time
 
 IP = "127.0.0.1"
 port = 8080
@@ -13,13 +14,22 @@ print (f"socket binded to {port}")
 s.listen(5)      
 print ("socket is listening")
 
+ 
+with open('./response.txt', 'r')as fp:
+    resp = fp.read()
+
+resp = resp.encode('utf-8')
+
 while True: 
     c, addr = s.accept()      
     print ('Got a connection')
     rec = (c.recv(1024))
     print(rec.decode('utf-8'))
-    # with open("./dump", 'a+') as fp:
-    #     fp.write(f"{rec.decode('utf-8')}\n")
+
+    time.sleep(999)
+    
+    c.send(resp)
+
     c.close() 
 
 
