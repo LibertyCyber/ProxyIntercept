@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 import socket
 import time
-import requests
-from proxy_interceptor import Intercept
 
 port = 1234
 

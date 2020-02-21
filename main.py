@@ -30,7 +30,9 @@ print("[+]Createing scanner ...")
 
 try:
     scan = proxscan(port)
-    print("[+]Scanner created")
+    print(f"[+]Scanner created on port {port}")
 except:
     print("[-]Failed to create scanner")
 
+
+print(scan.listen())
