@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
+import time
+
+#import my classes
 from pull_config import Config
+from Scaner import proxscan
 
 #create base objects
 config = Config('./config.json')
@@ -18,3 +22,15 @@ print('''
         /_/    \____/\__, /\____/____/____/ /____/  /_/   /_/   \____/_/|_|\__, /  
                     /____/     /_____/                                    /____/   
 ''')
+print("[+]Starting ...")
+time.sleep(0)
+
+#create scanner
+print("[+]Createing scanner ...")
+
+try:
+    scan = proxscan(port)
+    print("[+]Scanner created")
+except:
+    print("[-]Failed to create scanner")
+
