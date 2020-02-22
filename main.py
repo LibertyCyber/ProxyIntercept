@@ -36,3 +36,5 @@ except:
 
 
 print(scan.listen())
+
+print(scan.rdata)
