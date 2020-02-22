@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import time
+import sys
 
 #import my classes
 from pull_config import Config
@@ -33,8 +34,11 @@ try:
     print(f"[+]Scanner created on port {port}")
 except:
     print("[-]Failed to create scanner")
+    sys.exit(1)
 
 
-print(scan.listen())
-
-print(scan.rdata)
+scan.listen()
+scan.get_content()
+scan.close_listen()
+#todo forward requests via sockets
+#todo 
